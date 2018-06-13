@@ -29,10 +29,10 @@ def load_mnist(path, kind='train'):
     return images, labels
 
 #讀取訓練數據集
-image_train_int8,labels_train = load_mnist(r'E:\GIT_hub\dn_nemo_class\Mnist',kind='train')
+image_train_int8,labels_train = load_mnist(r'D:\github\dn_nemo_class\Mnist',kind='train')
 
 #讀取測試數據
-image_test_int8,labels_test = load_mnist(r'E:\GIT_hub\dn_nemo_class\Mnist',kind='t10k')
+image_test_int8,labels_test = load_mnist(r'D:\github\dn_nemo_class\Mnist',kind='t10k')
 
 thresh = 50
 image_train = (image_train_int8>=thresh)*1
@@ -74,7 +74,7 @@ print(timetrain)
 
 
 # 读取图片
-im   = cv2.imread(r'E:\GIT_hub\dn_nemo_class\4\3.png')
+im   = cv2.imread(r'D:\github\dn_nemo_class\4\1.png')
 
 #将图片转为灰阶
 im_gray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
@@ -105,10 +105,15 @@ cv2.destroyAllWindows()
 4.向量化
 5.进模型
 '''
+from sklearn.externals import joblib
+#指定名稱
+filename = 'model.m'
 
+#調用 DUMP 函數
+joblib.dump(model,filename)
 
-
-
+# 調用乙存儲模型
+model = joblib.load('model.m')
 
 
 
